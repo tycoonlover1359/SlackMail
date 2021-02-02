@@ -1,0 +1,68 @@
+{
+    "channel": "<SLACK CHANNEL HERE>",
+    "text": "New email from {from}",
+    "blocks":
+    [
+        {
+            "type": "section",
+            "text":
+            {
+                "type": "mrkdwn",
+                "text": "*To:* {to}\n*From:* {from}\n*Subject:* {subject}"
+            }
+        },
+        {
+            "type": "actions",
+            "elements":
+            [
+                {
+                    "type": "button",
+                    "text":
+                    {
+                        "type": "plain_text",
+                        "text": "Download Email",
+                        "emoji": true
+                    },
+                    "action_id": "download_email",
+                    "style": "primary",
+                    "value": "<EMAIL KEY>"
+                },
+                {
+                    "type": "button",
+                    "text":
+                    {
+                        "type": "plain_text",
+                        "text": "Delete Email",
+                        "emoji": true
+                    },
+                    "confirm":
+                    {
+                        "title":
+                        {
+                            "type": "plain_text",
+                            "text": "Delete this email?"
+                        },
+                        "text":
+                        {
+                            "type": "mrkdwn",
+                            "text": "This action is irreversible\n\nAre you sure you want do delete this email?"
+                        },
+                        "confirm":
+                        {
+                            "type": "plain_text",
+                            "text": "Do it"
+                        },
+                        "deny":
+                        {
+                            "type": "plain_text",
+                            "text": "Stop, I've changed my mind!"
+                        }
+                    },
+                    "action_id": "delete_email",
+                    "style": "danger",
+                    "value": "<EMAIL KEY>"
+                }
+            ]
+        }
+    ]
+}
